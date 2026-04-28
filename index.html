@@ -10,14 +10,16 @@ layout: default
         <h1><a href="index.html"><strong>{{ site.header.title }}</strong> {{ site.header.subtitle }}</a></h1>
         <nav>
             <ul>
-                <li><a href="#footer">About&nbsp;&nbsp;<i class="fa fa-info-circle text-fg"></i></a></li>
+                <li><a href="#footer">Qui soc&nbsp;&nbsp;<i class="fa fa-info-circle text-fg"></i></a></li>
             </ul>
         </nav>
     </header>
 
     <!-- Main -->
     <div id="main" data-exif='{{ site.exif }}'>
-        {% for image in site.static_files %}
+        {% assign n = site.static_files | size %}
+        {% assign shuffled_images = site.static_files | sample: n %}
+        {% for image in shuffled_images %}
         {% if image.path contains 'fulls' %}
         <article class="thumb">
             <a href="{{ site.baseurl }}{{ site.image_fulls_loc }}/{{ image.name }}" class="image">
@@ -39,7 +41,7 @@ layout: default
                     <p>{{ site.footer.bio }}</p>
                     <p>{{ site.footer.github }}</p>
                 </section>
-                <section>
+                <!--section>
                     <h2>Sponsor</h2>
                     <div class="presentify">
                         <div class="presentify-logo">
@@ -53,9 +55,9 @@ layout: default
                             ever with the <a href="https://presentifyapp.com">Presentify</a> app.
                         </div>
                     </div>
-                </section>
+                </section-->
                 <section>
-                    <h2>Follow me on ...</h2>
+                    <h2>Segueix-me a ...</h2>
                     <ul class="icons">
                         {% if site.social_urls.facebook %}
                             <li>
@@ -102,11 +104,19 @@ layout: default
                     </ul>
                 </section>
                 <p class="copyright">
-                    &copy; {{ site.author }}. Design: {{ site.web_design }}
+                    &copy; {{ site.author }}. 
                 </p>
             </div>
             <div>
                 <section>
+                    <h2>Ràdio</h2>
+                    <p>Copresentador del podcast <a href="https://radiovoltrega.com/endramaliats">Endramaliats</a> a Ràdio Voltregà.</p>
+                </section>
+                <section>
+                    <h2>CV</h2>
+                    <p><a href="https://dev.casellas.cat">dev.casellas.cat.</a></p>
+                </section>
+                <!--section>
                     <h2>Get in touch</h2>
                     <form method="post" action="#">
                         <div class="fields">
@@ -125,7 +135,7 @@ layout: default
                             <li><input type="reset" value="Reset" /></li>
                         </ul>
                     </form>
-                </section>
+                </section-->
             </div>
         </div>
     </footer>
